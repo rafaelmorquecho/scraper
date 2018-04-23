@@ -4,7 +4,7 @@ $username = "root";
 $password = "";
 $dbname = "scraper";
 ini_set('max_execution_time', 30000);
-for ($idrecord=1; $idrecord < 99999; $idrecord++) { 
+for ($idrecord=1; $idrecord < 50000; $idrecord++) { 
     
 
 $html = utf8_encode (file_get_contents("http://www.calendariopodismo.it/dettagli.php?idrecord="    . $idrecord . "#.WtjX2IhuaCg")); //Convierte la información de la URL en cadena
@@ -29,7 +29,7 @@ if (preg_match('/<strong>Riferimento:<\/strong>(.*?)<br>/i', $html, $referencia)
     $fecha = "";
 
     if(preg_match('/<strong>Nome:<\/strong>(.*?)<br>/i', $html, $nombre) > 0)
-    $nombre= $nombre[1];
+    $nombre= str_replace("'"," " , $nombre[1]);
     else
     $nombre = "";
 
@@ -38,7 +38,7 @@ if (preg_match('/<strong>Riferimento:<\/strong>(.*?)<br>/i', $html, $referencia)
     else
     $km = "";
 
-    if(preg_match('/<strong>Email:<\/strong> <a href="mailto:(.*?)>/i', $html, $email) > 0)
+    if(preg_match('/<strong>Email:<\/strong> <a href="mailto:(.*?)">/i', $html, $email) > 0)
     $email = $email[1];
     else
     $email = "";
@@ -55,7 +55,7 @@ if (preg_match('/<strong>Riferimento:<\/strong>(.*?)<br>/i', $html, $referencia)
     else
     $notas = "";
 
-    echo "<div><p> registro $referencia" . "telefono: " . $telefonos . "</p></div>";
+    
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=UTF8", $username, $password);
