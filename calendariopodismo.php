@@ -25,7 +25,7 @@ try {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="estilo.css">
 
-        <title>Hello, world!</title>
+        <title>calendario</title>
     </head>
     <body>
 
@@ -78,7 +78,7 @@ WHERE Table_name = 'calendariopodismo'";
                                     $cabecera[$i] = strtoupper($head[0]);
                                     $i++;
                                 }
-                                var_dump($cabecera);
+                                //var_dump($cabecera);
                                 $J = 0;
                                 foreach ($conn->query($sql) as $fila) {
                                     for ($i = 0; $i < 10; $i++) {
@@ -96,7 +96,7 @@ WHERE Table_name = 'calendariopodismo'";
                                     }
                                     $j++;
                                 }
-                                $formato = array(
+                                /*$formato = array(
                                     "REFERENCIA" => "0",
                                     "LUGAR" => '@',
                                     "DIA" => '@',
@@ -106,7 +106,7 @@ WHERE Table_name = 'calendariopodismo'";
                                     "EMAIL" => '@',
                                     "TELEFONOS" => '@',
                                     "NOTAS" => '@'
-                                );
+                                );*/
 
 
                                 //$writer->writeSheetHeader('carreras', $cabecera);
@@ -124,7 +124,7 @@ WHERE Table_name = 'calendariopodismo'";
 
         
                                
-                                $writer->writeToFile("calendariopodismo.xlsx");
+                                $writer->writeToFile("calendariopodismo25.xlsx");
 
                                 $conn = null;
                                 ?>
