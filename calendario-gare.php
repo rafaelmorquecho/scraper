@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 ini_set('max_execution_time', 50000);
 
 require "datos_conexion.php";
-for ($idrecord = 6000; $idrecord < 6010; $idrecord++) {
+for ($idrecord = 6999; $idrecord < 9000; $idrecord++) {
     $info = array();
     $datos['id'] = $idrecord;
 
