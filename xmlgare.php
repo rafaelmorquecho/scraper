@@ -65,13 +65,6 @@ foreach ($conn->query($sql) as $fila) {
 echo "<pre>" . print_r($celdas, true) . "</pre>";
 
 
-
-
-
-
-
-
-
 $writer->writeSheetRow("carreras", $cabeceras);
 $writer->writeSheet($celdas, "carreras");
 
